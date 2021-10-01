@@ -28,7 +28,7 @@ def find_squares(img):
 
                 # Функция cv:: approxPolyDP аппроксимирует кривую или полигон другой кривой / полигоном с меньшим количеством вершин так, чтобы расстояние между ними было меньше или равно указанной точности. Он использует алгоритм Дугласа-Пекера
                 cnt = cv2.approxPolyDP(cnt, 0.02 * cnt_len, True)
-                if len(cnt) > 3 and len(cnt) < 7 and cv2.contourArea(cnt) > 1000 and cv2.isContourConvex(cnt):
+                if len(cnt) > 3  and len(cnt) < 7 and cv2.contourArea(cnt) > 1000 and cv2.isContourConvex(cnt):
                     # смотрим на количество углов, минимум их должны быть 4 до 6
                     cnt = cnt.reshape(-1, 2)
                     max_cos = numpy.max([angle_cos(cnt[i], cnt[(i + 1) % 4], cnt[(i + 2) % 4]) for i in range(4)])
